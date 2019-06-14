@@ -1,7 +1,8 @@
 package com.sda.tallinn4.practicalproject.search.model;
 
 
-import com.sda.tallinn4.practicalproject.search.User;
+
+import com.sda.tallinn4.practicalproject.register.model.User;
 
 import javax.persistence.*;
 
