@@ -17,10 +17,85 @@ public class Cargo {
     private User user;
 
     @Column(name = "cargo_description")
-    private String description;
+    private String cargoDescription;
 
-    private Integer cargowWeight;
+    @Column(name = "loading_place")
+    private String loadingPlace;
 
-    @Column(name = "cargo_size")
-    private String cargoSize;
+    @Column(name = "discharging_place")
+    private String deschargingPlace;
+
+    @Column(name = "cargo_weight")
+    private Integer cargoWeight;
+
+    @Column(name = "custom_status")
+    private String customStatus;
+
+    public Cargo() {
+    }
+
+    public Cargo(User user, String cargoDescription, String loadingPlace, String deschargingPlace, Integer cargoWeight, String customStatus) {
+        this.user = user;
+        this.cargoDescription = cargoDescription;
+        this.loadingPlace = loadingPlace;
+        this.deschargingPlace = deschargingPlace;
+        this.cargoWeight = cargoWeight;
+        this.customStatus = customStatus;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public String getCargoDescription() {
+        return cargoDescription;
+    }
+
+    public void setCargoDescription(String cargoDescription) {
+        this.cargoDescription = cargoDescription;
+    }
+
+    public String getLoadingPlace() {
+        return loadingPlace;
+    }
+
+    public void setLoadingPlace(String loadingPlace) {
+        this.loadingPlace = loadingPlace;
+    }
+
+    public String getDeschargingPlace() {
+        return deschargingPlace;
+    }
+
+    public void setDeschargingPlace(String deschargingPlace) {
+        this.deschargingPlace = deschargingPlace;
+    }
+
+    public Integer getCargoWeight() {
+        return cargoWeight;
+    }
+
+    public void setCargoWeight(Integer cargoWeight) {
+        this.cargoWeight = cargoWeight;
+    }
+
+    public String getCustomStatus() {
+        return customStatus;
+    }
+
+    public void setCustomStatus(String customStatus) {
+        this.customStatus = customStatus;
+    }
 }

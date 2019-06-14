@@ -18,12 +18,12 @@ public class Country {
     private String continentName;
 
     @Column(name = "country_iso_code")
-    private String country_code;
+    private String countryCode;
 
     @Column(name = "country_name")
     private String countryName;
 
     @Column(name = "is_in_european_union")
-    private Boolean countryUnion;
+    private Boolean countryIsInEU;
 }
 

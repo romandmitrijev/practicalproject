@@ -17,11 +17,13 @@ public class Vehicle {
 
     private Integer capacity;
 
-    @Column(name = "loading_place")
-    private String loadingPlace;
+    @Column(name = "location")
+    private String vehicleLocation;
 
-    @Column(name = "delivery_place")
-    private String deliveryPlace;
+    @Column(name = "possible_delivery_areas")
+    private String deliveryArea;
+
+    private String status;
 
 
 }
