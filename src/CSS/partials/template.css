@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower|Roboto');
+
+@import 'header.css';
+@import 'footer.css';
+
+/*VARIABLES*/
+:root {
+	--primary-green: lightgreen;
+	--secondary-green: #18a888;
+	--default-blue: #00bfff;
+	--secondary-blue: #00ccff;
+	--primary-blue: #2962ff;
+	--primary-yellow: gold;
+	--secondary-yellow: goldenrod;
+	--primary-red: tomato;
+	--secondary-red: crimson;
+	--primary-white: white;
+	--secondary-white: #fbfbfb;
+	--primary-grey: #eee;
+	--secondary-grey: #bbb;
+	--primary-black: #2d333a;
+	--secondary-black: #262b30;
+	--para-color: rgba(0,0,0,0.87);
+	--info-color: #777;
+	--default-radius: 2px;
+	--default-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+*{
+	box-sizing: border-box;
+	transition: all 0.1s ease-out;
+	border: none;
+	outline: none;
+}
+
+input[type='submit']{
+	border: none;
+	cursor: pointer;
+	background-color: var(--primary-green);
+}
+
+input[type='submit']:hover{
+	border: none;
+	background-color: var(--secondary-green);
+}
+
+body{
+    font-family: "Indie flower";
+    margin: 0;
+    background-color: var(--secondary-white);
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.brandName{
+	margin: 0 30px;
+	font-size: 1.6rem;
+}
+
+.brandName span{
+	color: var(--primary-green);
+}
+
+a{
+	text-decoration: none;
+	margin: 0;
+	color: var(--secondary-grey);
+}
+
+a:hover{
+	color: var(--default-blue);
+}
+
+section{
+    width: 75vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    margin: 20px 0;
+    overflow: hidden;
+    background-color: var(--primary-white);
+    border-radius: var(--default-radius);
+    box-shadow: var(--default-shadow);  
+}
