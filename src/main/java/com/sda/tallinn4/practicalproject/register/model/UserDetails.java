@@ -1,28 +1,31 @@
 package com.sda.tallinn4.practicalproject.register.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
 public class UserDetails {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String firstName;
-    private String lastNamae;
-    private String email;
+    private String lastName;
     private Integer phoneNumber;
 
     @OneToOne
-    @MapsId
+    @JoinColumn(name = "user_name")
+    @JsonIgnore
     private User user;
 
     public UserDetails() {
     }
 
-    public UserDetails(String firstName, String lastNamae, String email, Integer phoneNumber, User user) {
+    public UserDetails(String firstName, String lastName, Integer phoneNumber, User user) {
         this.firstName = firstName;
-        this.lastNamae = lastNamae;
-        this.email = email;
+        this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.user = user;
     }
@@ -43,20 +46,12 @@ public class UserDetails {
         this.firstName = firstName;
     }
 
-    public String getLastNamae() {
-        return lastNamae;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLastNamae(String lastNamae) {
-        this.lastNamae = lastNamae;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public Integer getPhoneNumber() {
