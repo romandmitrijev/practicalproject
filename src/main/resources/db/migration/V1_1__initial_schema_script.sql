@@ -1,15 +1,15 @@
+CREATE DATABASE IF NOT EXISTS sda_final_project;
 USE sda_final_project;
 
 CREATE TABLE user (
-    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    username VARCHAR(15) NOT NULL,
+    userName VARCHAR(15) NOT NULL PRIMARY KEY,
     password VARCHAR(15) NOT NULL,
     usertype VARCHAR(20) NOT NULL
 );
 
 CREATE TABLE userdetails (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    user_id INT NOT NULL,
+    userName VARCHAR(15) NOT NULL,
     firstname VARCHAR(15) NOT NULL,
     lastname VARCHAR(15),
     email VARCHAR(20),
@@ -21,10 +21,10 @@ CREATE TABLE userdetails (
 
 CREATE TABLE company(
 	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    user_id INT NOT NULL,
-	companyname VARCHAR(20),
+    username INT NOT NULL,
+	company_name VARCHAR(20),
     reg_number VARCHAR(20),
-    postindex VARCHAR(20)
+    post_index VARCHAR(20)
 );
 
 CREATE TABLE country(

@@ -1,21 +1,27 @@
 package com.sda.tallinn4.practicalproject.register.model;
 
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
 public class Company {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String companyName;
     private String regNumber;
-    private String Street;
-    private String City;
+    private String street;
+    private String city;
     private Integer postIndex;
 
     @OneToOne
-    @MapsId
+    @JoinColumn(name = "user_name")
+    @JsonIgnore
     private User user;
+
 
     public Company() {
     }
@@ -24,8 +30,8 @@ public class Company {
 
         this.companyName = companyName;
         this.regNumber = regNumber;
-        Street = street;
-        City = city;
+        this.street = street;
+        this.city = city;
         this.postIndex = postIndex;
         this.user = user;
     }
@@ -55,19 +61,19 @@ public class Company {
     }
 
     public String getStreet() {
-        return Street;
+        return street;
     }
 
     public void setStreet(String street) {
-        Street = street;
+        this.street = street;
     }
 
     public String getCity() {
-        return City;
+        return city;
     }
 
     public void setCity(String city) {
-        City = city;
+        this.city = city;
     }
 
     public Integer getPostIndex() {
