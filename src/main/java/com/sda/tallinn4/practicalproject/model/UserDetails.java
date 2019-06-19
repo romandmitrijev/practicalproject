@@ -1,11 +1,11 @@
-package com.sda.tallinn4.practicalproject.register.model;
+package com.sda.tallinn4.practicalproject.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 
 @Entity
+@Table(name = "user_details")
 public class UserDetails {
 
     @Id
@@ -14,19 +14,23 @@ public class UserDetails {
     private String firstName;
     private String lastName;
     private Integer phoneNumber;
+    private String country;
+    private String city;
 
     @OneToOne
     @JoinColumn(name = "user_name")
-    @JsonIgnore
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private User user;
 
     public UserDetails() {
     }
 
-    public UserDetails(String firstName, String lastName, Integer phoneNumber, User user) {
+    public UserDetails(String firstName, String lastName, Integer phoneNumber, String country, String city, User user) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
+        this.country = country;
+        this.city = city;
         this.user = user;
     }
 
@@ -68,6 +72,22 @@ public class UserDetails {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 }
 
