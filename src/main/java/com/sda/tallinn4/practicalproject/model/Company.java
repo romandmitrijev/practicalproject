@@ -1,9 +1,10 @@
-package com.sda.tallinn4.practicalproject.register.model;
+package com.sda.tallinn4.practicalproject.model;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
+
 
 @Entity
 public class Company {
@@ -19,7 +20,7 @@ public class Company {
 
     @OneToOne
     @JoinColumn(name = "user_name")
-    @JsonIgnore
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private User user;
 
 
@@ -27,7 +28,6 @@ public class Company {
     }
 
     public Company(String companyName, String regNumber, String street, String city, Integer postIndex, User user) {
-
         this.companyName = companyName;
         this.regNumber = regNumber;
         this.street = street;

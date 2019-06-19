@@ -1,4 +1,4 @@
-package com.sda.tallinn4.practicalproject.register.model;
+package com.sda.tallinn4.practicalproject.model;
 
 import javax.persistence.*;
 
