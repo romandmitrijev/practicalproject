@@ -1,0 +1,26 @@
+form{
+	width: 30%;
+	min-width: 400px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+input{
+	margin-bottom: 10px;
+	min-width: 280px;
+	width: 100%;
+
+	border-radius: var(--default-radius);
+	padding: 8px;
+	font-size: 0.75rem;
+	text-align: center;
+
+	border-left: 2px solid var(--primary-green);
+	box-shadow: var(--default-shadow);
+}
+
+input:hover{
+	border-left: 8px solid var(--primary-green);
+}

@@ -1,0 +1,43 @@
+header{
+	background-color: var(--primary-black);
+	color: var(--primary-white);
+	padding: 8px 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+
+	animation: headerAni 1s;
+
+	z-index: 300;
+}
+
+header div{
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+header a{
+	text-decoration: none;
+	margin: 0 15px;
+	color: var(--secondary-grey);
+}
+
+header a:hover{
+	color: var(--default-blue);
+}
+
+.activeMenu{
+	color: var(--default-blue) !important;
+	cursor: default !important;
+}
+
+@keyframes headerAni{
+	from{ top: -100px }
+	to{ top: 0 }
+}

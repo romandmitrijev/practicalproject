@@ -1,0 +1,33 @@
+@import 'form.css';
+
+footer{
+	position: relative;
+	width: 100%;
+	background-color: var(--primary-black);
+	color: var(--primary-white);
+	padding: 25px 35px;
+
+	display: flex;
+	justify-content: space-around;
+	align-items: flex-start;
+}
+
+footer div div{
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+footer div div span{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	margin: 20px;
+}
+
+footer small{
+	position: absolute;
+	left: 35px;
+	bottom: 10px;
+}
