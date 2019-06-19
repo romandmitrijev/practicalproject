@@ -1,4 +1,4 @@
-package com.sda.tallinn4.practicalproject.search.model;
+package com.sda.tallinn4.practicalproject.model;
 
 
 
@@ -14,6 +14,7 @@ public class Cargo {
     private Long id;
 
     @ManyToOne
+    @JoinColumn(name = "user_name")
     private User user;
 
     @Column(name = "cargo_description")
@@ -23,7 +24,7 @@ public class Cargo {
     private String loadingPlace;
 
     @Column(name = "discharging_place")
-    private String deschargingPlace;
+    private String dischargingPlace;
 
     @Column(name = "cargo_weight")
     private Integer cargoWeight;
@@ -34,11 +35,11 @@ public class Cargo {
     public Cargo() {
     }
 
-    public Cargo(User user, String cargoDescription, String loadingPlace, String deschargingPlace, Integer cargoWeight, String customStatus) {
+    public Cargo(User user, String cargoDescription, String loadingPlace, String dischargingPlace, Integer cargoWeight, String customStatus) {
         this.user = user;
         this.cargoDescription = cargoDescription;
         this.loadingPlace = loadingPlace;
-        this.deschargingPlace = deschargingPlace;
+        this.dischargingPlace = dischargingPlace;
         this.cargoWeight = cargoWeight;
         this.customStatus = customStatus;
     }
@@ -75,12 +76,12 @@ public class Cargo {
         this.loadingPlace = loadingPlace;
     }
 
-    public String getDeschargingPlace() {
-        return deschargingPlace;
+    public String getDischargingPlace() {
+        return dischargingPlace;
     }
 
-    public void setDeschargingPlace(String deschargingPlace) {
-        this.deschargingPlace = deschargingPlace;
+    public void setDischargingPlace(String dischargingPlace) {
+        this.dischargingPlace = dischargingPlace;
     }
 
     public Integer getCargoWeight() {

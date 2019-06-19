@@ -1,7 +1,7 @@
 spring:
-datasource:
-username: root
-password: Daywalker1
-url: jdbc:mysql://localhost:3306/sda_final_project
-driver-class-name: com.mysql.cj.jdbc.Driver
+  datasource:
+    username: root
+    password: Daywalker1
+    url: jdbc:mysql://localhost:3306/sda_final_project
+    driver-class-name: com.mysql.cj.jdbc.Driver
 

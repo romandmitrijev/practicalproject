@@ -1,24 +1,25 @@
-package com.sda.tallinn4.practicalproject.search.model;
+package com.sda.tallinn4.practicalproject.model;
 
 import com.sda.tallinn4.practicalproject.register.model.User;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 
 @Entity
-public class Shipment {
+public class Pending {
 
     @Id
-    private Long id;
+    private Integer id;
 
-    @OneToOne
+    @ManyToOne
     private User user;
 
-    @OneToOne
+    @ManyToOne
     private Cargo cargo;
 
-    @OneToOne
+    @ManyToOne
     private Vehicle vehicle;
 
+    private String comments;
 }

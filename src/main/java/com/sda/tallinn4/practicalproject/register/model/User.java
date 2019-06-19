@@ -2,45 +2,56 @@ package com.sda.tallinn4.practicalproject.register.model;
 
 import javax.persistence.*;
 
+
 @Entity
+@Table(name = "user")
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String username;
+    private String userName;
+    private String password;
+    private String email;
     private String userType;
 
-    @OneToOne(mappedBy = "user")
+   /* @OneToOne(mappedBy = "user")
     private UserDetails userDetails;
 
     @OneToOne(mappedBy = "user")
-    private Company company;
+    private Company company;*/
 
     public User() {
     }
 
-    public User(String username, String userType, UserDetails userDetails, Company company) {
-        this.username = username;
+    public User(String userName, String password, String email, String userType) {
+        this.userName = userName;
+        this.password = password;
+        this.email = email;
         this.userType = userType;
-        this.userDetails = userDetails;
-        this.company = company;
+
     }
 
-    public Long getId() {
-        return id;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public String getUsername() {
-        return username;
+    public String getPassword() {
+        return password;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getUserType() {
@@ -49,21 +60,5 @@ public class User {
 
     public void setUserType(String userType) {
         this.userType = userType;
-    }
-
-    public UserDetails getUserDetails() {
-        return userDetails;
-    }
-
-    public void setUserDetails(UserDetails userDetails) {
-        this.userDetails = userDetails;
-    }
-
-    public Company getCompany() {
-        return company;
-    }
-
-    public void setCompany(Company company) {
-        this.company = company;
     }
 }

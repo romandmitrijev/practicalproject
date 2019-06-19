@@ -1,4 +1,4 @@
-package com.sda.tallinn4.practicalproject.search.model;
+package com.sda.tallinn4.practicalproject.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

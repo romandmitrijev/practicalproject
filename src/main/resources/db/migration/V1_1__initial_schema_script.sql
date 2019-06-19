@@ -30,7 +30,7 @@ CREATE TABLE userdetails (
 CREATE TABLE company(
 	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     user_name VARCHAR(15)NOT NULL,
-	company_name VARCHAR(20),
+	  company_name VARCHAR(20),
     reg_number VARCHAR(20),
     post_index VARCHAR(20)
 );
