@@ -1,64 +1,64 @@
 <!DOCTYPE html>
-<html lang='en' dir='ltr'>
+<html lang='en' dir='ltr' xmlns:th="http://www.thymeleaf.org">
+
 	<Head>
-		<title>Cargo project - Home</title>
+		<title>Register</title>
 		<meta charset='utf-8' />
 		<meta name='keywords' content='Software development, academy, training, html, css, javascript' />
-		<meta name='description' content='Introduction to html, css and javascript' />
+		<meta name='description' content='Practical project' />
 		<meta name='viewport' content='minimum-scale=1.0, initial-scale=1.0' />
 		<meta name='theme-color' content='#1888a8' />
-		<link rel='stylesheet' href='/css/home.css'>
-		<link rel='icon' type='image/x-icon' href='' />
+		<link rel='icon' type='image/x-icon' href='/images/icon.png' />
+		<link rel='stylesheet' href='/css/register.css'>
 		<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.1/css/all.css' integrity='sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf' crossorigin='anonymous' />
+		<script src='/js/register.js'></script>
 	</Head>
 	<body>
 		<header>
 			<div>
-					<nav><a href='index.html' class='activeMenu' title='Home'>
-							<i class='fas fa-home'></i>
-						</a></nav>
+					<a href='../index.html' title='Home'>
+						<i class='fas fa-home'></i>
+					</a>
 				<p class='brandName'><span>Cargo</span>Project</p>
 			</div>
 			<nav>
-				<a href='index.html' class='activeMenu' title='Home'>
-					<i class='fas fa-home'></i>
-				</a>
-				<a href='/truck' title='Truck'>
+				
+				<a href='truck.html' title='Blog'>
 					<i class='fas fa-truck'></i>
 				</a>
-				<a href='/cargo' title='Cargo'>
+				<a href='cargo.html' title='Calculator'>
 					<i class='fas fa-truck-loading'></i>
 				</a>
-				<a href='/register' title='Account'>
+				<a href='register.html' class='activeMenu' title='Account'>
 					<i class='fas fa-user-circle'></i>
 				</a>
-				<a href='/search' title='Search'>
+				<a href='search.html' title='Search'>
 					<i class='fas fa-search'></i>
                 </a>
 			</nav>
 		</header>
+		<!-- Page content -->
 		<section>
-			<h4 >Welcome</h4>
-			<p>
-				Whether you’re importing or exporting, Universal Cargo has your international shipping covered port to port or door to door in full container loads or less than a container loads. 
-			</p>
-			
-			<div>
-				<p>
-					
-				</p>
-	
-				<figure>
-					<img src='/images/truck.jpg' alt='Truck image' />
-					<figcaption>Source: google.com</figcaption>
-				</figure>
+			<div id='formHolder'>
+				<div class='form-container sign-up-container'>
+					<form action='#' th:action="@{/register}" th:object="${user}" method="post">
+						<h1>Create Account</h1>
+						<div class='social-container'>
+							<a href='#' class='social'><i class='fab fa-facebook-f'></i></a>
+							<a href='#' class='social'><i class='fab fa-google-plus-g'></i></a>
+							<a href='#' class='social'><i class='fab fa-linkedin-in'></i></a>
+						</div>
+						<span>or use your email for registration</span>
+						<input type='text' placeholder='Name' />
+						<input type='email' placeholder='Email' />
+						<input type='password' placeholder='Password' />
+						<button>Sign Up</button>
+					</form>
+				</div>
+
 			</div>
 		</section>
-
-		<section>
-			
-		</section>
-
+		<!-- Page footer -->
 		<footer>
 			<div>
 				<p id='brandNameFoot' class='brandName'><span>Cargo</span>Project</p>
