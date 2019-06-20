@@ -1,18 +1,26 @@
-CREATE DATABASE IF NOT EXISTS sda_final_project;
 USE sda_final_project;
+drop table city;
+drop table company;
+drop table country;
+drop table shipment;
+DROP TABLE userdetails;
+DROP TABLE user;
+drop table vehicle;
+drop table cargo;
+alter table vehicle MODIFY capacity INT;
 
 CREATE TABLE user (
-    userName VARCHAR(15) NOT NULL PRIMARY KEY,
+    username VARCHAR(15) NOT NULL PRIMARY KEY,
     password VARCHAR(15) NOT NULL,
+    email VARCHAR(20) NOT NULL,
     usertype VARCHAR(20) NOT NULL
 );
 
 CREATE TABLE userdetails (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    userName VARCHAR(15) NOT NULL,
+    username VARCHAR(15)NOT NULL,
     firstname VARCHAR(15) NOT NULL,
     lastname VARCHAR(15),
-    email VARCHAR(20),
     phonenumber INT,
     country VARCHAR(20) NOT NULL,
     city VARCHAR(20)
@@ -21,45 +29,44 @@ CREATE TABLE userdetails (
 
 CREATE TABLE company(
 	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    username INT NOT NULL,
-	company_name VARCHAR(20),
+    user_name VARCHAR(15)NOT NULL,
+	  company_name VARCHAR(20),
     reg_number VARCHAR(20),
     post_index VARCHAR(20)
 );
 
-CREATE TABLE country(
-	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    user_id INT NOT NULL,
-    city_id INT NOT NULL,
-	countryname VARCHAR(20)
-);
-
-CREATE TABLE city(
-	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    user_id INT NOT NULL,
-	cityname VARCHAR(20)
-);
 
 CREATE TABLE cargo(
 	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    user_id INT NOT NULL,
+    user_name VARCHAR(15)NOT NULL,
 	cargo_description VARCHAR(50),
-    cargoweight INT,
-    cargo_size VARCHAR(20)
+    loading_place VARCHAR(20),
+    discharging_place VARCHAR(20),
+    cargo_weight INT,
+    custom_status VARCHAR(20)
 );
 
 CREATE TABLE vehicle(
 	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    user_id LONG NOT NULL,
-	capacity INT(20),
-    loading_place VARCHAR(20),
-    delivery_place VARCHAR(20)
+    user_name VARCHAR(15)NOT NULL,
+	capacity INT,
+    location VARCHAR(20),
+    possible_delivery_areas VARCHAR(20),
+    status VARCHAR(20)
 );
+
 
 CREATE TABLE shipment(
 	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    user_id LONG NOT NULL,
-	cargo_id LONG NOT NULL,
-    shipment_id LONG NOT NULL,
-    comment VARCHAR(20)
+    user_name VARCHAR(15)NOT NULL,
+	cargo_id INT NOT NULL,
+    vehicle_id INT NOT NULL
+);
+
+CREATE TABLE pending(
+	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    user_name VARCHAR(15)NOT NULL,
+	cargo_id INT NOT NULL,
+    vehicle_id INT NOT NULL,
+    comments VARCHAR(20)
 );
