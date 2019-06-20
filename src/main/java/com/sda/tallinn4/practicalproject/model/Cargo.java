@@ -1,9 +1,6 @@
 package com.sda.tallinn4.practicalproject.model;
 
 
-
-
-
 import javax.persistence.*;
 
 @Entity
