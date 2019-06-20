@@ -3,10 +3,11 @@ package com.sda.tallinn4.practicalproject.controller;
 import com.sda.tallinn4.practicalproject.model.Company;
 import com.sda.tallinn4.practicalproject.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+@Controller
 public class CompanyController {
 
     @Autowired

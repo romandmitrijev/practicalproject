@@ -2,12 +2,12 @@ package com.sda.tallinn4.practicalproject.controller;
 
 import com.sda.tallinn4.practicalproject.model.UserDetails;
 import com.sda.tallinn4.practicalproject.service.UserDetailsService;
-import com.sda.tallinn4.practicalproject.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+@Controller
 public class UserDetailsController {
 
     @Autowired
