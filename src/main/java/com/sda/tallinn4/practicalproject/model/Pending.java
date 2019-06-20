@@ -1,6 +1,6 @@
 package com.sda.tallinn4.practicalproject.model;
 
-import com.sda.tallinn4.practicalproject.register.model.User;
+
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
