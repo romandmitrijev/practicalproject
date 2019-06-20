@@ -1,7 +1,6 @@
-package com.sda.tallinn4.practicalproject.register.model;
+package com.sda.tallinn4.practicalproject.model;
 
 import javax.persistence.*;
-
 
 @Entity
 @Table(name = "user")
@@ -13,21 +12,22 @@ public class User {
     private String email;
     private String userType;
 
-   /* @OneToOne(mappedBy = "user")
+    @OneToOne(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private UserDetails userDetails;
 
-    @OneToOne(mappedBy = "user")
-    private Company company;*/
+    @OneToOne(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Company company;
 
     public User() {
     }
 
-    public User(String userName, String password, String email, String userType) {
+    public User(String userName, String password, String email, String userType, UserDetails userDetails, Company company) {
         this.userName = userName;
         this.password = password;
         this.email = email;
         this.userType = userType;
-
+        this.userDetails = userDetails;
+        this.company = company;
     }
 
     public String getUserName() {
@@ -60,5 +60,21 @@ public class User {
 
     public void setUserType(String userType) {
         this.userType = userType;
+    }
+
+    public UserDetails getUserDetails() {
+        return userDetails;
+    }
+
+    public void setUserDetails(UserDetails userDetails) {
+        this.userDetails = userDetails;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
     }
 }

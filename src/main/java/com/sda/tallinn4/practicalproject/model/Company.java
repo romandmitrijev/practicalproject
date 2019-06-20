@@ -1,31 +1,37 @@
-package com.sda.tallinn4.practicalproject.register.model;
+package com.sda.tallinn4.practicalproject.model;
+
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
+
 
 @Entity
 public class Company {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String companyName;
     private String regNumber;
-    private String Street;
-    private String City;
+    private String street;
+    private String city;
     private Integer postIndex;
 
     @OneToOne
-    @MapsId
+    @JoinColumn(name = "user_name")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private User user;
+
 
     public Company() {
     }
 
     public Company(String companyName, String regNumber, String street, String city, Integer postIndex, User user) {
-
         this.companyName = companyName;
         this.regNumber = regNumber;
-        Street = street;
-        City = city;
+        this.street = street;
+        this.city = city;
         this.postIndex = postIndex;
         this.user = user;
     }
@@ -55,19 +61,19 @@ public class Company {
     }
 
     public String getStreet() {
-        return Street;
+        return street;
     }
 
     public void setStreet(String street) {
-        Street = street;
+        this.street = street;
     }
 
     public String getCity() {
-        return City;
+        return city;
     }
 
     public void setCity(String city) {
-        City = city;
+        this.city = city;
     }
 
     public Integer getPostIndex() {
