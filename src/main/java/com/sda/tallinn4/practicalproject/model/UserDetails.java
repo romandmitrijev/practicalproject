@@ -1,6 +1,5 @@
 package com.sda.tallinn4.practicalproject.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 
@@ -19,7 +18,6 @@ public class UserDetails {
 
     @OneToOne
     @JoinColumn(name = "user_name")
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private User user;
 
     public UserDetails() {
