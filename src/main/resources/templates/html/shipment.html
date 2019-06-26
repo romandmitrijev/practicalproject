@@ -37,39 +37,24 @@
 
 		</header>
 		<section>
-			<h4>Cargo</h4>
-			<form method='get' action='/cargo/findBySearchCriteria'>
-				<select name="criteria">
-					<option>LoadingPlace</option>
-					<option>DischargingPlace</option>
-					<option>CargoDescription</option>
-					<option>CargoWeight</option>
-				</select>
-				<input type='text' name="name" placeholder='type your search' />
-				<input type='submit' value='Search' />
-			</form>
-			<table class="cargoTable">
+			<h4>Pending</h4>
+			<table class="shipmentTable">
 				<tr>
-					<th>Loading Place</th>
-					<th>Delivery Place</th>
-					<th>Description</th>
-					<th>Weight</th>
-					<th>Accept cargo</th>
+					<th>User name</th>
+					<th>Cargo id</th>
+					<th>Vehicle id</th>
 				</tr>
-				<tr th:each="cargo : ${cargo}">
-					<th th:text="${cargo.loadingPlace}"></th>
-					<td th:text="${cargo.dischargingPlace}"></td>
-					<td th:text="${cargo.cargoDescription}"></td>
-					<td th:text="${cargo.cargoWeight}"></td>
+				<tr th:each="shipment : ${shipment}">
+					<th th:text="${shipment.user}"></th>
+					<td th:text="${shipment.cargo.id}"></td>
+					<td th:text="${shipment.vehicle.id}"></td>
 					<td>
-						<form action="#" th:action="@{/pending/all/} + ${cargo.id}">
-							<input type="submit" value="BID" />
+						<form action="#" th:action="@{/cargo/all/}">
+							<input type="submit" value="DONE" />
 						</form>
 					</td>
 				</tr>
 			</table>
-			<a href='/cargo/add'> Add Cargo </a>
-			<a href='/cargo/delete'> Delete Cargo </a>
 		</section>
 		<footer>
 			<div>

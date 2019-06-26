@@ -9,10 +9,12 @@ import java.util.List;
 
 public interface VehicleRepository extends JpaRepository<Vehicle, Long> {
 
+    List<Vehicle> findAllByUser(String name);
+
     List<Vehicle> findAllByVehicleLocation(String name);
 
-    List<Vehicle> findAllByCapacity(Integer size);
+    List<Vehicle> findAllByCapacity(Integer capacity);
 
-    List<Vehicle> findAllByDeliveryArea(String area);
+    List<Vehicle> findAllByDeliveryArea(String name);
 
 }

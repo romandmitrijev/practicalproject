@@ -3,7 +3,7 @@ drop table city;
 drop table company;
 drop table country;
 drop table shipment;
-DROP TABLE userdetails;
+DROP TABLE user_details;
 DROP TABLE user;
 drop table vehicle;
 drop table cargo;
@@ -16,7 +16,7 @@ CREATE TABLE user (
     usertype VARCHAR(20) NOT NULL
 );
 
-CREATE TABLE userdetails (
+CREATE TABLE user_details (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(15)NOT NULL,
     firstname VARCHAR(15) NOT NULL,
@@ -32,7 +32,9 @@ CREATE TABLE company(
     user_name VARCHAR(15)NOT NULL,
 	  company_name VARCHAR(20),
     reg_number VARCHAR(20),
-    post_index VARCHAR(20)
+    post_index VARCHAR(20),
+    street VARCHAR (20),
+    city VARCHAR (20)
 );
 
 

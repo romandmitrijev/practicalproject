@@ -1,6 +1,10 @@
 package com.sda.tallinn4.practicalproject.model;
 
+import org.springframework.data.jpa.repository.Query;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "user")
@@ -12,6 +16,11 @@ public class User {
     private String email;
     private String userType;
 
+    @OneToMany
+    @JoinColumn(name = "cargo_id")
+    private List<Cargo> cargo = new ArrayList<>();
+
+
     @OneToOne(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private UserDetails userDetails;
 
@@ -21,11 +30,12 @@ public class User {
     public User() {
     }
 
-    public User(String userName, String password, String email, String userType, UserDetails userDetails, Company company) {
+    public User(String userName, String password, String email, String userType, List<Cargo> cargo, UserDetails userDetails, Company company) {
         this.userName = userName;
         this.password = password;
         this.email = email;
         this.userType = userType;
+        this.cargo = cargo;
         this.userDetails = userDetails;
         this.company = company;
     }
@@ -60,6 +70,14 @@ public class User {
 
     public void setUserType(String userType) {
         this.userType = userType;
+    }
+
+    public List<Cargo> getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(List<Cargo> cargo) {
+        this.cargo = cargo;
     }
 
     public UserDetails getUserDetails() {

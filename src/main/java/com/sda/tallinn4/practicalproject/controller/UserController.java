@@ -33,10 +33,10 @@ public class UserController {
 //        userService.addUser(user);
 //    }
 
-    @GetMapping(path = "/{userName}")
+ /*   @GetMapping(path = "/{userName}")
     public User findUserByUserName(@PathVariable String userName){
         return userService.getUser(userName);
-    }
+    }*/
 
     @GetMapping(path = "/all")
     public List<User> getAllUsers(){
