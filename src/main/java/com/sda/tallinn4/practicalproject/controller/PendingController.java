@@ -27,7 +27,7 @@ public class PendingController {
     @Autowired
     PendingRepository pendingRepository;
 
-    @GetMapping(path = "pending/all")
+    @GetMapping(path = "pending")
     public ModelAndView findAllPending() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/html/pending");

@@ -16,13 +16,13 @@
 	<body>
 		<header>
 			<div>
-					<a href='../index.html' title='Home'>
+					<a href='/' title='Home'>
 						<i class='fas fa-home'></i>
 					</a>
 				<p class='brandName'><span>Cargo</span>Project</p>
 			</div>
 			<nav>
-
+				
 				<a href='/vehicle' title='Vehicle'>
 					<i class='fas fa-truck'></i>
 				</a>
@@ -34,7 +34,7 @@
 				</a>
 				<a href='/search' title='Search'>
 					<i class='fas fa-search'></i>
-				</a>
+                </a>
 			</nav>
 		</header>
 		<!-- Page content -->
@@ -49,13 +49,14 @@
 							<a href='#' class='social'><i class='fab fa-linkedin-in'></i></a>
 						</div>
 						<span>or use your email for registration</span>
-						<input type='text' placeholder='Name' />
-						<input type='email' placeholder='Email' />
-						<input type='password' placeholder='Password' />
-						<button>Sign Up</button>
+						<div class="error" th:if="${error}" th:text="${error}"></div>
+						<input type='text' th:field="*{userName}" placeholder='Name' />
+						<input type='email' th:field="*{email}" placeholder='Email' />
+						<input type='password' th:field="*{password}" placeholder='Password' />
+						<input type="submit" value="Sign Up">
 					</form>
 				</div>
-
+				<a href='/signin'>Already have an account</a>
 			</div>
 		</section>
 		<!-- Page footer -->

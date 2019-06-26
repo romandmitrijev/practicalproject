@@ -47,7 +47,7 @@
 					<th>accept order</th>
 				</tr>
 				<tr th:each="pending : ${pending}">
-					<th th:text="${pending.user}"></th>
+					<th th:text="${pending.user.userName}"></th>
 					<td th:text="${pending.cargo.id}"></td>
 					<td th:text="${pending.vehicle.id}"></td>
 					<td th:text="${pending.comments}"></td>

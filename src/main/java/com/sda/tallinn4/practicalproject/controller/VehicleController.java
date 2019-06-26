@@ -13,6 +13,7 @@ import java.util.List;
 
 @Controller
 public class VehicleController {
+
     @Autowired
     VehicleRepository vehicleRepository;
     @Autowired
@@ -36,7 +37,7 @@ public class VehicleController {
     public ModelAndView findBySearchCriteria (@RequestParam String name,@RequestParam String criteria){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/html/vehicle");
-        modelAndView.addObject("vehicle", vehicleService.findAllBySearchCriteria(name, criteria));
+        modelAndView.addObject("vehicles", vehicleService.findAllBySearchCriteria(name, criteria));
         return modelAndView;
     }
 
@@ -46,19 +47,16 @@ public class VehicleController {
     }
 
     @GetMapping(path = "vehicle/findByLocation")
-    public List<Vehicle> findAllByVehicleLocation (@RequestParam("location") String name){
-        return vehicleRepository.findAllByVehicleLocation(name);
+    public Iterable<Vehicle> findAllByVehicleLocation (@RequestParam("vehicleLocation") String name){
+        return vehicleService.findAllByVehicleLocation(name);
     }
     @GetMapping(path ="vehicle/findByCapacity")
     public List<Vehicle> findAllByCapacity (@RequestParam("capacity") Integer capacity){
-        return vehicleRepository.findAllByCapacity(capacity);
+        return vehicleService.findAllByCapacity(capacity);
     }
     @GetMapping(path = "vehicle/findByDeliveryArea")
     public List<Vehicle> findAllByDeliveryArea (@RequestParam("deliveryArea") String name){
-        return vehicleRepository.findAllByDeliveryArea(name);
-    }
-    public void deleteVehicle (Vehicle vehicle){
-        vehicleRepository.delete(vehicle);
+        return vehicleService.findAllByDeliveryArea(name);
     }
 
     @GetMapping(path = "vehicle/add")

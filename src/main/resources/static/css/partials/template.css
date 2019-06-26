@@ -103,3 +103,7 @@ section{
     border-radius: var(--default-radius);
     box-shadow: var(--default-shadow);  
 }
+
+.error div{
+	color: var(--secondary-red);
+}

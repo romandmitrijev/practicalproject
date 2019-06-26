@@ -10,6 +10,16 @@
 		<link rel='icon' type='image/x-icon' href='../main/resources/static/images/icon.png' />
 		<link rel='stylesheet' href='/css/cargo.css'>
 		<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.1/css/all.css' integrity='sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf' crossorigin='anonymous' />
+	    <style type="text/css">
+			.bidbutton{
+				width: 50px;
+				min-width: 50px;
+			}
+			form{
+				min-width: 100px;
+			}
+		</style>
+
 	</Head>
 	<body>	
 		<header>
@@ -62,14 +72,16 @@
 					<td th:text="${cargo.cargoDescription}"></td>
 					<td th:text="${cargo.cargoWeight}"></td>
 					<td>
-						<form action="#" th:action="@{/pending/all/} + ${cargo.id}">
-							<input type="submit" value="BID" />
+
+						<form action="#" th:action="@{/pending}"> <!--+ ${cargo.id}-->
+							<input type="submit" class="bidbutton" value="BID" />
 						</form>
 					</td>
 				</tr>
 			</table>
 			<a href='/cargo/add'> Add Cargo </a>
 			<a href='/cargo/delete'> Delete Cargo </a>
+            <a href='/cargo'> Return to cargo list</a>
 		</section>
 		<footer>
 			<div>

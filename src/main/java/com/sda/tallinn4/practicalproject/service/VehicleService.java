@@ -34,7 +34,7 @@ public class VehicleService {
     }
 
     public List<Vehicle> findAllByUser(String name) {
-        return vehicleRepository.findAllByUser(name);
+        return vehicleRepository.findAllByUserUserName(name);
     }
 
 
@@ -49,6 +49,7 @@ public class VehicleService {
     public List<Vehicle> findAllByDeliveryArea (String area){
         return vehicleRepository.findAllByDeliveryArea(area);
     }
+
     public void deleteVehicle (Vehicle vehicle){
         vehicleRepository.delete(vehicle);
     }
