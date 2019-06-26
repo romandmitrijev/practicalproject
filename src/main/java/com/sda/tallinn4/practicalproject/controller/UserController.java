@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @Controller
 public class UserController {
@@ -25,7 +24,7 @@ public class UserController {
     @PostMapping(path = "/register")
     public String registerUser(Model model, @ModelAttribute("user") User user){
         userService.addUser(user);
-        return "register";
+        return "/html/register";
     }
 
 //    @PostMapping(path = "/register")
@@ -33,13 +32,14 @@ public class UserController {
 //        userService.addUser(user);
 //    }
 
-    @GetMapping(path = "/{userName}")
-    public User findUserByUserName(@PathVariable String userName){
-        return userService.getUser(userName);
+//    @GetMapping(path = "/{userName}")
+//    public User findUserByUserName(@PathVariable String userName){
+//        return userService.getUser(userName);
+//    }
+
+    @GetMapping(path = "/signin")
+    public String signInAUser(){
+        return "/html/signin";
     }
 
-    @GetMapping(path = "/all")
-    public List<User> getAllUsers(){
-        return userService.getAllUsers();
-    }
 }

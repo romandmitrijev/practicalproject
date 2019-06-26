@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Sign In</title>
@@ -15,44 +15,47 @@
 <body>
 <header>
     <div>
-        <a href='../index.html' title='Home'>
+        <a href='/' title='Home'>
             <i class='fas fa-home'></i>
         </a>
         <p class='brandName'><span>Cargo</span>Project</p>
     </div>
     <nav>
 
-        <a href='truck.html' title='Blog'>
+        <a href='/truck' title='Vehicle'>
             <i class='fas fa-truck'></i>
         </a>
-        <a href='cargo.html' title='Calculator'>
+        <a href='/cargo' title='Cargo'>
             <i class='fas fa-truck-loading'></i>
         </a>
-        <a href='register.html' class='activeMenu' title='Account'>
+        <a href='/register' class='activeMenu' title='Account'>
             <i class='fas fa-user-circle'></i>
         </a>
-        <a href='search.html' title='Search'>
+        <a href='/search' title='Search'>
             <i class='fas fa-search'></i>
         </a>
     </nav>
 </header>
-<div id='formHolder'>
-    <div class='form-container sign-in-container'>
-        <form action='#'>
-            <h1>Sign in</h1>
-            <div class='social-container'>
-                <a href='#' class='social'><i class='fab fa-facebook-f'></i></a>
-                <a href='#' class='social'><i class='fab fa-google-plus-g'></i></a>
-                <a href='#' class='social'><i class='fab fa-linkedin-in'></i></a>
-            </div>
-            <span>or use your account</span>
-            <input type='email' placeholder='Email' />
-            <input type='password' placeholder='Password' />
-            <a href='#'>Forgot your password?</a>
-            <button>Sign In</button>
-        </form>
+<section>
+    <div id='formHolder'>
+        <div class='form-container sign-in-container'>
+            <form action='#' th:action="@{/signin}" method="post">
+                <h1>Sign in</h1>
+                <div class='social-container'>
+                    <a href='#' class='social'><i class='fab fa-facebook-f'></i></a>
+                    <a href='#' class='social'><i class='fab fa-google-plus-g'></i></a>
+                    <a href='#' class='social'><i class='fab fa-linkedin-in'></i></a>
+                </div>
+                <span>or use your account</span>
+                <input type='username' name="username" placeholder='Username' />
+                <input type='password' name="password" placeholder='Password' />
+                <input type="submit" value="Sign In" />
+                <a href='#'>Forgot your password?</a>
+            </form>
+        </div>
     </div>
-</div>
+</section>
+
 <footer>
     <div>
         <p id='brandNameFoot' class='brandName'><span>Cargo</span>Project</p>
