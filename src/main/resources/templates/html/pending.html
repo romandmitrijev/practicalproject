@@ -1,29 +1,29 @@
 <!DOCTYPE html>
-<html lang='en' dir='ltr'>
+<html lang='en' dir='ltr' xmlns:th="http://www.thymeleaf.org">
 	<Head>
-		<title>Cargo project - Home</title>
+		<title>Cargo Project - Home</title>
 		<meta charset='utf-8' />
 		<meta name='keywords' content='Software development, academy, training, html, css, javascript' />
 		<meta name='description' content='Introduction to html, css and javascript' />
 		<meta name='viewport' content='minimum-scale=1.0, initial-scale=1.0' />
 		<meta name='theme-color' content='#1888a8' />
-		<link rel='stylesheet' href='/css/home.css'>
-		<link rel='icon' type='image/x-icon' href='' />
+		<link rel='icon' type='image/x-icon' href='../main/resources/static/images/icon.png' />
+		<link rel='stylesheet' href='/css/cargo.css'>
 		<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.1/css/all.css' integrity='sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf' crossorigin='anonymous' />
 	</Head>
-	<body>
+	<body>	
 		<header>
 			<div>
-					<nav><a href='/' class='activeMenu' title='Home'>
-							<i class='fas fa-home'></i>
-						</a></nav>
+					<a href='/' title='Home'>
+						<i class='fas fa-home'></i>
+					</a>
 				<p class='brandName'><span>Cargo</span>Project</p>
 			</div>
 			<nav>
 				<a href='/vehicle' title='Vehicle'>
 					<i class='fas fa-truck'></i>
 				</a>
-				<a href='/cargo' title='Cargo'>
+				<a href='/cargo' class='activeMenu' title='Cargo'>
 					<i class='fas fa-truck-loading'></i>
 				</a>
 				<a href='/register' title='Account'>
@@ -33,29 +33,32 @@
 					<i class='fas fa-search'></i>
                 </a>
 			</nav>
+
+
 		</header>
 		<section>
-			<h4 >Welcome</h4>
-			<p>
-				Whether you’re importing or exporting, Universal Cargo has your international shipping covered port to port or door to door in full container loads or less than a container loads. 
-			</p>
-			
-			<div>
-				<p>
-					
-				</p>
-	
-				<figure>
-					<img src='/images/truck.jpg' alt='Truck image' />
-					<figcaption>Source: google.com</figcaption>
-				</figure>
-			</div>
+			<h4>Pending</h4>
+			<table class="pendingTable">
+				<tr>
+					<th>User name</th>
+					<th>Cargo id</th>
+					<th>Vehicle id</th>
+					<th>Comments</th>
+					<th>accept order</th>
+				</tr>
+				<tr th:each="pending : ${pending}">
+					<th th:text="${pending.user.userName}"></th>
+					<td th:text="${pending.cargo.id}"></td>
+					<td th:text="${pending.vehicle.id}"></td>
+					<td th:text="${pending.comments}"></td>
+					<td>
+						<form action="#" th:action="@{/shipment/all/}">
+							<input type="submit" value="ACCEPT" />
+						</form>
+					</td>
+				</tr>
+			</table>
 		</section>
-
-		<section>
-			
-		</section>
-
 		<footer>
 			<div>
 				<p id='brandNameFoot' class='brandName'><span>Cargo</span>Project</p>

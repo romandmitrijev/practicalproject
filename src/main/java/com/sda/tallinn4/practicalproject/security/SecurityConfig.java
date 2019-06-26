@@ -19,7 +19,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/cargo/**", "/truck/**")
+                .antMatchers("/cargo/**", "/vehicle/**")
                 .authenticated()
                 .and().formLogin()
                 .loginPage("/signin")
