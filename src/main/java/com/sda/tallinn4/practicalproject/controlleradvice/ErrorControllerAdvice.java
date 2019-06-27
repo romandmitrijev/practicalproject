@@ -18,4 +18,5 @@ public class ErrorControllerAdvice {
         modelAndView.setViewName("/html/register");
         return  modelAndView;
     }
+    
 }

@@ -42,4 +42,9 @@ public class UserController {
         return "/html/signin";
     }
 
+
+    @GetMapping(path = "/profile")
+    public String userProfile(){
+        return "/html/profile";
+    }
 }
