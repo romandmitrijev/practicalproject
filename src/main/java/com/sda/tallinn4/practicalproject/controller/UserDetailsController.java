@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 public class UserDetailsController {
 
     @Autowired
-    UserDetailsService userDetailsService;
+    private UserDetailsService userDetailsService;
 
     @GetMapping(path = "/userdetails/add")
     public void get(Model model){

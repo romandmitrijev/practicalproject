@@ -13,7 +13,7 @@ import java.util.List;
 public class ShipmentService {
 
     @Autowired
-    ShipmentRepository shipmentRepository;
+    private ShipmentRepository shipmentRepository;
 
     public List<Shipment> findAll() {
         return shipmentRepository.findAll();

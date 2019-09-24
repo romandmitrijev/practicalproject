@@ -3,23 +3,26 @@ package com.sda.tallinn4.practicalproject.controller;
 import com.sda.tallinn4.practicalproject.model.Cargo;
 import com.sda.tallinn4.practicalproject.repository.CargoRepository;
 import com.sda.tallinn4.practicalproject.service.CargoService;
-import com.sun.org.apache.xpath.internal.operations.Mod;
+import com.sda.tallinn4.practicalproject.service.UserService;
+import com.sda.tallinn4.practicalproject.util.UserUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.jws.WebParam;
 
 @Controller
 public class CargoController {
 
     @Autowired
-    CargoRepository cargoRepository;
+    private CargoRepository cargoRepository;
 
     @Autowired
-    CargoService cargoService;
+    private CargoService cargoService;
+
+    @Autowired
+    private UserService userService;
 
 /*    @GetMapping(path = "cargo/all")
     public Iterable<Cargo> findAll (){
@@ -35,10 +38,11 @@ public class CargoController {
     }
 
     @GetMapping(path = "cargo/findBySearchCriteria")
-    public ModelAndView findBySearchCriteria (@RequestParam String name,@RequestParam String criteria){
+    public ModelAndView findBySearchCriteria(@RequestParam String name,@RequestParam String criteria){
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("/html/cargo");
-        modelAndView.addObject("cargo", cargoService.findAllBySearchCriteria(name, criteria));
+        modelAndView.setViewName("/html/findCargoByCriteria");
+        modelAndView.addObject("cargo",
+            cargoService.findAllBySearchCriteria(name, criteria));
         return modelAndView;
     }
 
@@ -61,6 +65,7 @@ public class CargoController {
     @GetMapping(path = "/cargo/add")
     public String get(Model model){
         Cargo cargo = new Cargo();
+        cargo.setUser(UserUtil.getLoggedInUser(userService));
         model.addAttribute("cargo", cargo);
         return "html/addcargo";
     }

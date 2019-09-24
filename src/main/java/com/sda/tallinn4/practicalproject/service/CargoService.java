@@ -16,7 +16,7 @@ import java.util.List;
 public class CargoService {
 
     @Autowired
-    CargoRepository cargoRepository;
+    private CargoRepository cargoRepository;
 
     public List<Cargo> findAll() {
         return cargoRepository.findAll();
@@ -57,7 +57,7 @@ public class CargoService {
         cargoRepository.delete(cargo);
     }
 
-    public String addNewCargo(Cargo cargo){//
+    public String addNewCargo(Cargo cargo){
         cargoRepository.save(cargo);
         return "/html/addcargo";
     }

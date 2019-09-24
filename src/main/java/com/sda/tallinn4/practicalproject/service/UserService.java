@@ -34,14 +34,14 @@ public class UserService implements UserDetailsService {
         userRepository.save(user);
     }
 
-    public User getUser(String userName){
+/*    public User getUser(String userName){
         Optional<User> optionalUser = userRepository.findById(userName);
         if(optionalUser.isPresent()) {
             return optionalUser.get();
         }
         throw new UserNotFoundException("User " + userName + " does not exist");
 
-    }
+    }*/
 
     public List<User> getAllUsers(){
         return userRepository.findAll();
@@ -58,4 +58,12 @@ public class UserService implements UserDetailsService {
                 user.getUserName(), user.getPassword(), Arrays.asList(new SimpleGrantedAuthority(user.getUserType())));
     }
 
+    public User findUserByUserName(String userName) {
+        Optional<User> optionalUser = userRepository.findById(userName);
+        if(optionalUser.isPresent()) {
+            return optionalUser.get();
+        }
+        throw new UserNotFoundException("User " + userName + " does not exist");
+
+    }
 }

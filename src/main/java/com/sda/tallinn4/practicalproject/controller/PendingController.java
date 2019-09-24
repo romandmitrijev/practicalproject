@@ -17,15 +17,16 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class PendingController {
     @Autowired
-    PendingService pendingService;
-    @Autowired
-    VehicleRepository vehicleRepository;
+    private PendingService pendingService;
 
     @Autowired
-    CargoRepository cargoRepository;
+    private VehicleRepository vehicleRepository;
 
     @Autowired
-    PendingRepository pendingRepository;
+    private CargoRepository cargoRepository;
+
+    @Autowired
+    private PendingRepository pendingRepository;
 
     @GetMapping(path = "pending")
     public ModelAndView findAllPending() {
@@ -34,7 +35,6 @@ public class PendingController {
         modelAndView.addObject("pending", pendingService.findAll());
         return modelAndView;
     }
-
 
 /*    @GetMapping(path = "/pending/add")
     public String get(Model model){

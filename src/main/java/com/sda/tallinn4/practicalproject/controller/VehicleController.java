@@ -15,9 +15,9 @@ import java.util.List;
 public class VehicleController {
 
     @Autowired
-    VehicleRepository vehicleRepository;
+    private VehicleRepository vehicleRepository;
     @Autowired
-    VehicleService vehicleService;
+    private VehicleService vehicleService;
 
 /*
     @GetMapping(path = "vehicle/all")
@@ -36,8 +36,8 @@ public class VehicleController {
     @GetMapping(path = "vehicle/findBySearchCriteria")
     public ModelAndView findBySearchCriteria (@RequestParam String name,@RequestParam String criteria){
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("/html/vehicle");
-        modelAndView.addObject("vehicles", vehicleService.findAllBySearchCriteria(name, criteria));
+        modelAndView.setViewName("/html/findVehicleByCriteria");
+        modelAndView.addObject("vehicles", vehicleService.findBySearchCriteria(name, criteria));
         return modelAndView;
     }
 

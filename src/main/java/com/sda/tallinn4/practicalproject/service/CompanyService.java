@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 public class CompanyService {
 
     @Autowired
-    CompanyRepository companyRepository;
+    private CompanyRepository companyRepository;
 
     public void addCompany(Company company){
         companyRepository.save(company);

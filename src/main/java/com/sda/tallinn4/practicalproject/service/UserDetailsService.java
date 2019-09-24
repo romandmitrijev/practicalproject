@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 public class UserDetailsService {
 
     @Autowired
-    UserDetailsRepository userDetailsRepository;
+    private UserDetailsRepository userDetailsRepository;
 
     public void addUserDetails(UserDetails userDetails){
         userDetailsRepository.save(userDetails);
