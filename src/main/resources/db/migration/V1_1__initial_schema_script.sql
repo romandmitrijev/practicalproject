@@ -51,7 +51,7 @@ CREATE TABLE cargo(
 CREATE TABLE vehicle(
 	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     user_name VARCHAR(15)NOT NULL,
-	capacity INT,
+	  capacity INT,
     location VARCHAR(20),
     possible_delivery_areas VARCHAR(20),
     status VARCHAR(20)

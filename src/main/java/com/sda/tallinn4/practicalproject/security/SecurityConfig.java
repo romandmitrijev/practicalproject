@@ -26,9 +26,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/");
     }
 
-
-@Bean
-public PasswordEncoder encoder(){
+    @Bean
+    public PasswordEncoder encoder(){
     return NoOpPasswordEncoder.getInstance();
 }
 

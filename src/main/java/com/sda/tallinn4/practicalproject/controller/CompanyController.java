@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 public class CompanyController {
 
     @Autowired
-    CompanyService companyService;
+    private CompanyService companyService;
 
 
     @GetMapping(path = "/company/add")

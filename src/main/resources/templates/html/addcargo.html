@@ -37,6 +37,8 @@
 
 </header>
 <form action="#" th:action="@{/cargo/add}" th:object="${cargo}" method="post">
+    <label for="user_name">User</label>
+    <input type="text" readonly th:field="*{user.userName}" id="user_name" placeholder="User">
     <label for="Description">Description</label>
     <input type="text" th:field="*{cargoDescription}" id="description" placeholder="Description">
     <label for="loadingPlace">Loading Place</label>

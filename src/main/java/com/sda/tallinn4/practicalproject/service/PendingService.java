@@ -13,7 +13,7 @@ import java.util.List;
 public class PendingService {
 
     @Autowired
-    PendingRepository pendingRepository;
+    private PendingRepository pendingRepository;
 
     public List<Pending> findAll() {
         return pendingRepository.findAll();

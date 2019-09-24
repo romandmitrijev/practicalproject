@@ -39,7 +39,7 @@
 				<a href='/register' title='Account'>
 					<i class='fas fa-user-circle'></i>
 				</a>
-				<a href='/search' title='Search'>
+				<a href='/logout' title='logout'>
 					<i class='fas fa-search'></i>
                 </a>
 			</nav>
@@ -58,27 +58,7 @@
 				<input type='text' name="name" placeholder='type your search' />
 				<input type='submit' value='Search' />
 			</form>
-			<table class="cargoTable">
-				<tr>
-					<th>Loading Place</th>
-					<th>Delivery Place</th>
-					<th>Description</th>
-					<th>Weight</th>
-					<th>Accept cargo</th>
-				</tr>
-				<tr th:each="cargo : ${cargo}">
-					<th th:text="${cargo.loadingPlace}"></th>
-					<td th:text="${cargo.dischargingPlace}"></td>
-					<td th:text="${cargo.cargoDescription}"></td>
-					<td th:text="${cargo.cargoWeight}"></td>
-					<td>
 
-						<form action="#" th:action="@{/pending}"> <!--+ ${cargo.id}-->
-							<input type="submit" class="bidbutton" value="BID" />
-						</form>
-					</td>
-				</tr>
-			</table>
 			<a href='/cargo/add'> Add Cargo </a>
 			<a href='/cargo/delete'> Delete Cargo </a>
             <a href='/cargo'> Return to cargo list</a>

@@ -18,7 +18,7 @@ public class VehicleService {
         return vehicleRepository.findAll();
     }
 
-    public List<Vehicle> findAllBySearchCriteria( String name, String criteria) {
+    public List<Vehicle> findBySearchCriteria( String name, String criteria) {
         switch (criteria) {
             case "Owner":
                 return findAllByUser(name);
